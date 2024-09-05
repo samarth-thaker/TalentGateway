@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import 'package:talentgateway/customTextButton.dart';
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -11,6 +11,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final _emailController = TextEditingController();
   final _pwdController = TextEditingController();
+  final _confirmpwdController = TextEditingController();
   void signup() {
     Navigator.pushNamed(context, "/dashboardScreen");
   }
@@ -19,7 +20,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     Navigator.pushNamed(context, "/login");
   }
 
-  Widget customTextButton(
+  /* Widget customTextButton(
       String action, VoidCallback ontap, double buttonWidth) {
     return SizedBox(
         width: buttonWidth,
@@ -37,7 +38,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 color: Color.fromARGB(249, 255, 255, 255), fontSize: 16),
           ),
         ));
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
@@ -110,10 +111,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           ),
           const SizedBox(height: 16.0),
-          customTextButton("Signup", signup, buttonWidth),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: TextField(
+              controller: _confirmpwdController,
+              decoration: const InputDecoration(
+                labelText: 'Confirm Password',
+                /* border: OutlineInputBorder(), */
+              ),
+              obscureText: true,
+            ),
+          ),
           const SizedBox(
             height: 16,
           ),
+          CustomTextButton(ontap: signup,action: "Signup",buttonWidth:  buttonWidth),
+          
         ]),
       ),
     );

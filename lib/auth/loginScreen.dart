@@ -110,6 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
  */
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:talentgateway/customTextButton.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -130,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
     Navigator.pushNamed(context, "/signup");
   }
 
-  Widget customTextButton(
+  /* Widget customTextButton(
       String action, VoidCallback ontap, double buttonWidth) {
     return SizedBox(
       width: buttonWidth,
@@ -149,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
@@ -176,7 +177,13 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Center(
         child: Column(
           children: [
-            const SizedBox(height: 20),
+            const Text(
+            'Login',
+            style: TextStyle(fontSize: 40, color: Colors.green),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
             const Text(
               'Unlock your future,',
               style: TextStyle(
@@ -217,7 +224,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             const SizedBox(height: 16.0),
-            customTextButton("Login", login, buttonWidth),
+            CustomTextButton(ontap: login,action: "Login",buttonWidth:  buttonWidth),
           ],
         ),
       ),

@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color.fromARGB(256, 0, 0, 128),
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+      home: const LoginScreen(),
       routes: {
-        '/signup' : (context)=>SignUpScreen(),
-        '/dashboard':(context)=>DashboardScreen(),
-        '/login':(context)=>LoginScreen(),
+        '/signup' : (context)=>const SignUpScreen(),
+        '/dashboardScreen':(context)=>const DashboardScreen(),
+        '/login':(context)=>const LoginScreen(),
       },
     );
   }
