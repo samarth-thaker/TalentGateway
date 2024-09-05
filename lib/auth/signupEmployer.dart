@@ -3,21 +3,22 @@ import 'package:file_picker/file_picker.dart';
 import 'dart:io';
 import 'package:talentgateway/Global/widget/customTextButton.dart';
 
-class SignUpScreenFresher extends StatefulWidget {
-  const SignUpScreenFresher({super.key});
+class SignUpEmployer extends StatefulWidget {
+  const SignUpEmployer({super.key});
 
   @override
-  State<SignUpScreenFresher> createState() => _SignUpScreenFresherState();
+  State<SignUpEmployer> createState() => _SignUpEmployerState();
 }
 
-class _SignUpScreenFresherState extends State<SignUpScreenFresher> {
+class _SignUpEmployerState extends State<SignUpEmployer> {
   final _emailController = TextEditingController();
   final _pwdController = TextEditingController();
   final _confirmpwdController = TextEditingController();
-  final _collegeController = TextEditingController();
+  final _companyController = TextEditingController();
   final _phoneNumberController = TextEditingController();
-  
-  
+  final _companyWebsiteController = TextEditingController();
+  final _fullNameController = TextEditingController();
+  final _industryController = TextEditingController();
   void signup() {
     Navigator.pushNamed(context, "/dashboardScreen");
   }
@@ -61,13 +62,13 @@ class _SignUpScreenFresherState extends State<SignUpScreenFresher> {
           ),
         ],
       ),
-      body: SingleChildScrollView( 
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(height: 40), 
+              const SizedBox(height: 40),
               const Text(
                 'Signup',
                 style: TextStyle(fontSize: 40, color: Colors.green),
@@ -85,6 +86,11 @@ class _SignUpScreenFresherState extends State<SignUpScreenFresher> {
               ),
               const SizedBox(height: 25),
               TextField(
+                controller: _fullNameController,
+                decoration: const InputDecoration(labelText: 'Name'),
+              ),
+              const SizedBox(height: 16.0),
+              TextField(
                 controller: _emailController,
                 decoration: const InputDecoration(labelText: 'E-mail'),
               ),
@@ -97,13 +103,25 @@ class _SignUpScreenFresherState extends State<SignUpScreenFresher> {
               const SizedBox(height: 16.0),
               TextField(
                 controller: _confirmpwdController,
-                decoration: const InputDecoration(labelText: 'Confirm Password'),
+                decoration:
+                    const InputDecoration(labelText: 'Confirm Password'),
                 obscureText: true,
+              ),
+              const SizedBox(height: 16.0),
+              TextField(
+                controller: _industryController,
+                decoration: const InputDecoration(labelText: 'Industry'),
               ),
               const SizedBox(height: 16),
               TextField(
-                controller: _collegeController,
-                decoration: const InputDecoration(labelText: 'College'),
+                controller: _companyController,
+                decoration: const InputDecoration(labelText: 'Company'),
+              ),
+              const SizedBox(height: 16),
+              TextField(
+                controller: _companyWebsiteController,
+                decoration: const InputDecoration(labelText: 'Company website'),
+                keyboardType: TextInputType.url,
               ),
               const SizedBox(height: 16),
               TextField(
@@ -117,7 +135,7 @@ class _SignUpScreenFresherState extends State<SignUpScreenFresher> {
                   TextButton(
                     onPressed: _pickResume,
                     child: const Text(
-                      "Upload Resume (PDF)",
+                      "Upload Job Description (PDF)",
                       style: TextStyle(color: Colors.green),
                     ),
                   ),
@@ -129,7 +147,7 @@ class _SignUpScreenFresherState extends State<SignUpScreenFresher> {
               const SizedBox(height: 16),
               CustomTextButton(
                   ontap: signup, action: "Signup", buttonWidth: buttonWidth),
-              const SizedBox(height: 20), 
+              const SizedBox(height: 20),
             ],
           ),
         ),

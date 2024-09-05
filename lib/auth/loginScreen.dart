@@ -110,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
  */
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:talentgateway/customTextButton.dart';
+import 'package:talentgateway/Global/widget/customTextButton.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
